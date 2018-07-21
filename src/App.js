@@ -1,21 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
 
-class App extends Component {
+export default class Example extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      dropdownOpen: false
+    };
+  }
+
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+        <Nav pills>
+          <NavItem>
+            <NavLink href="#" active>Recipes</NavLink>
+          </NavItem>
+
+          <NavItem>
+            <NavLink href="#">Home</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#">Submit Recipes</NavLink>
+          </NavItem>
+
+        </Nav>
       </div>
     );
   }
 }
-
-export default App;
